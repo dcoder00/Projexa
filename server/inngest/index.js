@@ -184,6 +184,8 @@ const sendTaskAssignmentEmail = inngest.createFunction(
             </div>`
         })
 
+        console.log("Task assignment email sent to: ", task.assignee.email);
+
         if(new Date(task.due_date).toLocaleDateString() !== new Date().toDateString()){
             await step.sleepUntil('wait-for-the-due-date', new Date(task.due_date));
 

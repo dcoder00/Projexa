@@ -4,8 +4,8 @@ import prisma from '../configs/prisma.js'
 export const createProject = async (req, res) => {
     try {
         const { userId } = await req.auth();
-        const { workOrderId, description, name, status, start_date, end_date, team_members, 
-            team_lead, progess, priority } = req.body;
+        const { workspaceId, description, name, status, start_date, end_date, team_members, 
+            team_lead, progress, priority } = req.body;
 
         // check if user has admin role for workspace
          const workspace = await prisma.workspace.findUnique( {
